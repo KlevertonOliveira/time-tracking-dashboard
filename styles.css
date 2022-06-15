@@ -106,7 +106,7 @@ body {
   color: var(--pale-blue);
 }
 
-.report__subheader .currentTimeframe {
+.report__subheader .current {
   color: var(--pale-blue);
 }
 

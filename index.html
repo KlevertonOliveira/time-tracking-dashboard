@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap" rel="stylesheet"> 
   <script defer src='main.js' type="module"></script>
   <script defer src='/services/fetchData.js' type='module'></script>
-  <script defer src='/services/createActivity.js' type='module'></script>
+  <script defer src='/services/createActivityCard.js' type='module'></script>
   <script defer src='/utils/replaceWhitespaceWithHyphen.js' type='module'></script>
   <script defer src='/utils/transformTimeframeIntoPeriod.js' type='module'></script>
   <title>Time Tracking Dashboard</title>
@@ -32,7 +32,7 @@
         </div>
         <div class='report__subheader'>
           <button id='daily' class='timeframe'>Daily</button>
-          <button id='weekly' class='timeframe currentTimeframe'>Weekly</button>
+          <button id='weekly' class='timeframe current'>Weekly</button>
           <button id='monthly' class='timeframe'>Monthly</button>
         </div>
       </article>

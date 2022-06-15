@@ -1,7 +1,7 @@
 import { replaceWhitespaceWithHyphen } from '../utils/replaceWhitespaceWithHyphen.js';
 import { transformTimeframeIntoPeriod } from '../utils/transformTimeframeIntoPeriod.js';
 
-export function createActivity(activity, timeframe){
+export function createActivityCard(activity, timeframe){
   
   //Container
   const container = document.querySelector(".container");
@@ -36,13 +36,13 @@ export function createActivity(activity, timeframe){
 
   const spanCurrent = document.createElement('span');
   spanCurrent.className = 'activity__time--current';
-  const spanCurrentContent = `${activity.timeframes.monthly.current}hrs`;
+  const spanCurrentContent = `${activity.timeframes[timeframe].current}hrs`;
   spanCurrent.append(spanCurrentContent);
 
   const spanPrevious = document.createElement('span');
   spanPrevious.className = 'activity__time--previous';
   const spanPreviousContent = `
-    ${transformTimeframeIntoPeriod(timeframe)} - ${activity.timeframes.monthly.previous}hrs
+    ${transformTimeframeIntoPeriod(timeframe)} - ${activity.timeframes[timeframe].previous}hrs
    `;
   spanPrevious.append(spanPreviousContent);
 
