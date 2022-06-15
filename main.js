@@ -1,33 +1,20 @@
 import { createActivityCard } from './services/createActivityCard.js';
-import { fetchData } from './services/fetchData.js';
 
-fetchData()
-  .then((content) => {
-    content.forEach(activity => {
-      createActivityCard(activity, 'weekly');
+async function addTimeframeActivityCards(timeframe){
+  try {
+    const response = await fetch("./assets/data/data.json");
+    let data = await response.json();
+
+    data.forEach(activity => {
+      createActivityCard(activity, timeframe);
     })
-  })
-  .catch((error) => console.log(error));
+  }
+  catch (error) {
+    console.log(error);
+  }
+}
 
-// Update timeframe displayed content dinamically based on button's click event
-
-const dailyButton = document.getElementById('daily');
-const weeklyButton = document.getElementById('weekly');
-const monthlyButton = document.getElementById('monthly');
-
-dailyButton.addEventListener('click', ()=>{
-  updateCurrentTimeframe(dailyButton.id)
-}); 
-
-weeklyButton.addEventListener('click', ()=>{
-  updateCurrentTimeframe(weeklyButton.id)
-}); 
-
-monthlyButton.addEventListener('click', ()=>{
-  updateCurrentTimeframe(monthlyButton.id)
-});
-
-function removePreviousTimeframeCards(){
+function removePreviousTimeframeActivityCards(){
   const container = document.querySelector('.container');
   Array.from(container.children).forEach(card=>{
     if(card.classList.contains('activity')){
@@ -36,21 +23,31 @@ function removePreviousTimeframeCards(){
   })
 }
 
-function addTimeframeCards(id){
-  fetchData()
-  .then((content) => {
-    content.forEach(activity => {
-      createActivityCard(activity, id);
-    })
-  })
-  .catch((error) => console.log(error));
-}
+addTimeframeActivityCards('weekly');
 
-function updateCurrentTimeframe(id){
+// Update timeframe content dinamically based on each timeframe button's click event
 
-  removePreviousTimeframeCards();
+const dailyButton = document.getElementById('daily');
+const weeklyButton = document.getElementById('weekly');
+const monthlyButton = document.getElementById('monthly');
 
-  switch(id){
+dailyButton.addEventListener('click', ()=>{
+  updateCurrentTimeframeCards(dailyButton.id)
+}); 
+
+weeklyButton.addEventListener('click', ()=>{
+  updateCurrentTimeframeCards(weeklyButton.id)
+}); 
+
+monthlyButton.addEventListener('click', ()=>{
+  updateCurrentTimeframeCards(monthlyButton.id)
+});
+
+function updateCurrentTimeframeCards(timeframe){
+
+  removePreviousTimeframeActivityCards();
+
+  switch(timeframe){
     case 'daily':
       dailyButton.classList.add('current');
       weeklyButton.classList.remove('current');
@@ -70,5 +67,5 @@ function updateCurrentTimeframe(id){
       break;
   }
 
-  addTimeframeCards(id);
+  addTimeframeActivityCards(timeframe);
 }

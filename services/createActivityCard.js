@@ -6,56 +6,63 @@ export function createActivityCard(activity, timeframe){
   //Container
   const container = document.querySelector(".container");
 
-  // Activity Article
+  // creating activity article
   const activityArticle = document.createElement('article');
   const title = replaceWhitespaceWithHyphen(activity.title).toLowerCase();
   activityArticle.className = `activity activity--${title}`;
 
-  // Activity Details Div
+  // creating activityDetails div
   const activityDetailsDiv = document.createElement('div');
   activityDetailsDiv.className = 'activity__details';
 
-  // Activity Header Div
+  // creating activityHeader div
   const activityHeaderDiv = document.createElement('div');
   activityHeaderDiv.className = 'activity__header';
 
+  // creating activityHeader h2 title
   const activityHeaderTitle = document.createElement('h2');
   const activityHeaderTitleContent = document.createTextNode(activity.title);
   activityHeaderTitle.append(activityHeaderTitleContent);
 
+  // creating activityHeader image
   const activityHeaderImageElement = document.createElement('img');
   activityHeaderImageElement.src = '/assets/images/icon-ellipsis.svg';
   activityHeaderImageElement.alt = 'Three white circles separated by whitespace';
 
+  // Appending h2 and image to activityHeader div
   activityHeaderDiv.append(activityHeaderTitle);
   activityHeaderDiv.append(activityHeaderImageElement);
 
-  // Activity Time Div
+  // creating activityTime div
   const activityTimeDiv = document.createElement('div');
   activityTimeDiv.className = 'activity__time';
 
+  // Adding span with 'current' value of current selected timeframe information
   const spanCurrent = document.createElement('span');
   spanCurrent.className = 'activity__time--current';
   const spanCurrentContent = `${activity.timeframes[timeframe].current}hrs`;
   spanCurrent.append(spanCurrentContent);
 
+  // Add span with 'previous' value of current selected timeframe information
   const spanPrevious = document.createElement('span');
   spanPrevious.className = 'activity__time--previous';
+  const previousTimeframeDescription = transformTimeframeIntoPeriod(timeframe);
   const spanPreviousContent = `
-    ${transformTimeframeIntoPeriod(timeframe)} - ${activity.timeframes[timeframe].previous}hrs
+    ${previousTimeframeDescription} - ${activity.timeframes[timeframe].previous}hrs
    `;
   spanPrevious.append(spanPreviousContent);
 
+  // Appending spanCurrent and spanPrevious to activityTime div
   activityTimeDiv.append(spanCurrent);
   activityTimeDiv.append(spanPrevious);
 
-  // Append Header and Time Divs to Details Div
+  // Appending activityHeader and activityTime divs to activityDetails div
   activityDetailsDiv.append(activityHeaderDiv);
   activityDetailsDiv.append(activityTimeDiv);
 
-  // Append Details Div to Article
+  // Appending activityDetails div to activity article
   activityArticle.append(activityDetailsDiv)
 
-  // Append Article to Container
+  // Append activity article to Container
   container.append(activityArticle);
 }
