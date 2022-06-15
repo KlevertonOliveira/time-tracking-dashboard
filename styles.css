@@ -79,7 +79,7 @@ body {
   color: var(--pale-blue);
 }
 
-.report__subheader {
+.report__timeframe--options {
   background-color: var(--dark-blue);
 
   padding: 1.5rem;
@@ -88,7 +88,7 @@ body {
   justify-content: space-between;
 }
 
-.report__subheader button {
+.report__timeframe--options button {
   width: fit-content;
 
   background-color: transparent;
@@ -102,11 +102,11 @@ body {
   cursor: pointer;
 }
 
-.report__subheader button:hover {
+.report__timeframe--options button:hover {
   color: var(--pale-blue);
 }
 
-.report__subheader .current {
+.report__timeframe--options .current {
   color: var(--pale-blue);
 }
 
@@ -255,7 +255,7 @@ body {
     font-size: 2rem;
   }
 
-  .report__subheader {
+  .report__timeframe--options {
     flex: 1;
     flex-direction: column;
     gap: 1rem;
