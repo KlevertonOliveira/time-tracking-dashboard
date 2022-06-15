@@ -28,7 +28,6 @@ export function createActivityCard(activity, timeframe){
   const activityHeaderImageElement = document.createElement('img');
   activityHeaderImageElement.src = './assets/images/icon-ellipsis.svg';
   activityHeaderImageElement.alt = 'Three white circles aligned horizontally.';
-  console.log(activityHeaderImageElement);
 
   // Appending h2 and image to activityHeader div
   activityHeaderDiv.append(activityHeaderTitle);
