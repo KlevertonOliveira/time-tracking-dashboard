@@ -1,5 +1,10 @@
 import { replaceWhitespaceWithHyphen } from '../utils/replaceWhitespaceWithHyphen.js';
-import { transformTimeframeIntoPeriod } from '../utils/transformTimeframeIntoPeriod.js';
+
+const previousTimeframeDescription = {
+  daily: 'Yesterday',
+  weekly: 'Last Week',
+  monthly: 'Last Month'
+}
 
 export function createActivityCard(activity, timeframe){
   
@@ -8,8 +13,8 @@ export function createActivityCard(activity, timeframe){
 
   // creating activity article
   const activityArticle = document.createElement('article');
-  const title = replaceWhitespaceWithHyphen(activity.title).toLowerCase();
-  activityArticle.className = `activity activity--${title}`;
+  const activityClassTitle = replaceWhitespaceWithHyphen(activity.title).toLowerCase();
+  activityArticle.className = `activity activity--${activityClassTitle}`;
 
   // creating activityDetails div
   const activityDetailsDiv = document.createElement('div');
@@ -46,9 +51,8 @@ export function createActivityCard(activity, timeframe){
   // Add span with 'previous' value of current selected timeframe information
   const spanPrevious = document.createElement('span');
   spanPrevious.className = 'activity__time--previous';
-  const previousTimeframeDescription = transformTimeframeIntoPeriod(timeframe);
   const spanPreviousContent = `
-    ${previousTimeframeDescription} - ${activity.timeframes[timeframe].previous}hrs
+    ${previousTimeframeDescription[timeframe]} - ${activity.timeframes[timeframe].previous}hrs
    `;
   spanPrevious.append(spanPreviousContent);
 
