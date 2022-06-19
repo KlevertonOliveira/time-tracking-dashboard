@@ -32,8 +32,7 @@
 
 ## :movie_camera: Project Demonstration | Demonstração do Projeto
 
-https://user-images.githubusercontent.com/71989630/172881628-4cbfd219-870e-411b-8acb-0dd98204ded9.mp4
-
+https://user-images.githubusercontent.com/71989630/174489751-f9a84aa9-f478-4a4a-9ca0-d2ee9c1d9a9c.mp4
 
 ---
 
