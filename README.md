@@ -128,13 +128,13 @@ No processo, também aprendi e fiz uso da metodologia BEM do CSS, sendo bem inte
 Pré-requisitos: node.js
 
 ```bash
-# Clone o repositório
+# Clonar o repositório
 git clone https://github.com/KlevertonOliveira/time-tracking-dashboard.git
 
-# Entre na pasta do projeto
+# Entrar na pasta do projeto
 cd time-tracking-dashboard/
 
-# Crie um servidor para desenvolvimento local (para simplificar, você pode utilizar o VS Code com a extensão Live Server -> https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)
+# Criar um servidor para desenvolvimento local (para simplificar, você pode utilizar o VS Code com a extensão Live Server -> https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)
 
 # Executar o projeto!
 ```
